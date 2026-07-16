@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+  width: 100%;
+  background: #14181c;
+  border: 1px solid #3a424b;
+  color: #edeae2;
+  padding: 6px 8px;
+  font-size: 13px;
+  font-family: "IBM Plex Mono", monospace;
+}
+.input:focus {
+  outline: none;
+  border-color: #7c8791;
+}
+.action-btn {
+  width: 100%;
+  padding: 8px;
+  background: #232b32;
+  border: 1px solid #3a424b;
+  color: #edeae2;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.action-btn:hover {
+  border-color: #d98e04;
+  color: #d98e04;
+}
+:focus-visible {
+  outline: 2px solid #d98e04;
+  outline-offset: 2px;
+}
