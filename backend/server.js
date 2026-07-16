@@ -5,12 +5,17 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const assetRoutes = require("./routes/assetRoutes");
+const BASE = import.meta.env.VITE_API_URL || "/api";
 
 const app = express();
 app.set("trust proxy", 1); // trust first proxy (needed for secure cookies when behind a reverse proxy)
 app.use(cors());
 app.use(express.json());
 app.use(helmet.hsts({ maxAge: 31536000, includeSubDomains: true, preload: true }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL, // e.g. "https://your-app.vercel.app"
+  credentials: true,
+}));
 
 app.get("/api/health", (req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRoutes);
